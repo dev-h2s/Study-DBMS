@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>script 태그 안에서 JS 코드 작성</title>
+  </head>
+  <body>
+    <h3>마우스를 올려보세요</h3>
+    <hr />
+    <img
+      src="icon1.gng"
+      onmouseover="changeImage('over', this)"
+      onmouseout="changeImage('out', this)"
+    />
+  </body>
+  <!-- 스크립트는 body 태그 밖에서 랜더링이 가장 빠름  -->
+  <script>
+    // f: 난 함수야
+    // let date = {f: function(){}};
+    // event는 mouse over, out을 받아오고 이미지는 객체이기때문에 object로 받는다
+    function changeImage(event, object) {
+      // 전달 받은 event가 over면 icon2 아니면 icon1
+      object.src = event == 'over' ? 'icon2.png' : 'icon1.png';
+    }
+  </script>
+</html>

@@ -1,0 +1,81 @@
+@charset "utf-8";
+body{
+    /*최소 1500까지 유지하겠다 */
+    min-width: 1500px;
+}
+
+section.container {
+    position: relative;
+    width: 1500px;
+    height: 375px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+
+div.banner {
+    width: 21000px;
+    height: 375px;
+
+     /* 이동하는것(이미지 변형): 방향으로 이동()*/
+    /* transform: translate(-1500px); */
+}
+
+div.banner div{
+    width: 1500px;
+    height: 375px;
+    background-size: 100%;
+    /* 이미지가 태그를 다 채우지 않고 작더라도 하나만 나오게해줌 */
+    background-repeat: no-repeat;
+    float : left;
+}
+
+div.arrow {
+    cursor: pointer;
+    position: absolute;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 2rem;
+    background-color: #0000005c;
+    color: white;
+}
+
+
+.pager_info.left {
+    left: 0;
+    padding-right: 11px;
+}
+
+.pager_info {
+    position: absolute;
+    top: 50%;
+    height: 50px;
+    line-height: 50px;
+    margin-top: -25px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+div.dots {
+    position: absolute;
+    width: 110px;
+    display: flex;
+    justify-content: space-between;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+}
+
+div.dot {
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #313131;
+}
+img {
+    vertical-align: top;
+}

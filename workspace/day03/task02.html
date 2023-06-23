@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>종합 실습 2</title>
+  </head>
+  <body>
+    <!-- 
+        월화수목금토일
+        ---------------------(hr)
+        000은 출근
+
+        사용자에게 요일을 입력받고 월~목은 출근, 다른 날은 휴일을 출력한다.
+        요일은 "월", "화", ... 형식으로 입력받는다.
+     -->
+    <h2>월화수목금토일</h2>
+    <hr />
+  </body>
+  <script>
+    let workday = prompt('요일을 입력하세요', '일~월');
+    let whatday;
+    switch (workday) {
+      case '월':
+      case '화':
+      case '수':
+      case '목':
+        whatday = `${workday}요일은 출근하는 날이에요`;
+        break;
+      case '금':
+      case '토':
+      case '일':
+        whatday = `${workday}휴일입니다`;
+        break;
+      default:
+        whatday = '다시 입력해주세요';
+    }
+    document.write(`<h2>${whatday}</h2>`);
+  </script>
+</html>
+<!-- 
+    
+
+        월화수목금토일
+        ---------------------(hr)
+        000은 출근
+
+        사용자에게 요일을 입력받고 월~목은 출근, 다른 날은 휴일을 출력한다.
+        요일은 "월", "화", ... 형식으로 입력받는다.
+     -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>출근하나</title>
+  </head>
+  <body>
+    <h2>월화수목금토일</h2>
+    <hr />
+    <input id="work" type="text" name="week" />
+    <div id="tf"></div>
+  </body>
+  <script>
+    // getElementById id 속성 접근시 사용
+    var workInput = document.getElementById('work');
+    var tf = document.getElementById('tf');
+
+    function workweek(input) {
+      if (input === '월' || input === '화' || input === '수' || input === '목') {
+        tf.innerHTML = '출근';
+      } else {
+        tf.innerHTML = '휴일';
+      }
+    }
+    //addventlistener : 이벤트 발생시 실행될 함수를 듣ㅇ록
+    workInput.addEventListener('change', function () {
+      workweek(this.value); //입력된 요일 값
+    });
+  </script>
+</html> -->

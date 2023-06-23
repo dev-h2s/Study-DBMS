@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 기초 예제2</title>
+</head>
+<body>
+    <ul class="car">
+        <li id="g">G바겐</li>
+        <li>벤틀리</li>
+        <li id = "super">마세라티</li>
+    </ul>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+// 개발자도구에서 init은 제이쿼리 아니면 js
+    const $lists = $("li");  
+    const $ul = $("ul.car");
+    const $super =$("#super");
+
+    console.log($ul);
+    // $ul.css("list-style", "none"); // 태그가 일괄 변경될때 명시하지않고 사용
+
+    // 이전 요소 : prev() 슈퍼의 이전
+    console.log($super.prev().text());
+
+    //  다음 요소: next()
+    // console.log($ul.children().first().text().text());
+ 
+    // body는 document 붙여야 인식 text(): 값 가져오기 text("") : 값 변경 / . 을 기준으로 ul 태그.li태그(children()이 두개)
+    // console.log($(document.body).children().children("#super").text("페라리"));
+    
+    // find() : 자식 요소에서 검색 children을 쓸바에 find를 쓰자!
+    $(document.body).find("#super").text("페라리");
+ 
+    // closest() : 부모 요소에서 검색, 반복문에서 접근시 -> js형태임 ->형변환하여 사용
+    $super.closest(".car").children().each((i, li) => console.log($(li).text()));
+
+    // 자식 가져오기 $ul.childeren() 
+    console.log($ul.children());
+    // 첫번째 요소 인덱스로 요소 마지막 요소 변경
+    $ul.children().first().css("color", "red");
+    $ul.children().eq(1).css("color", "green");
+    $ul.children().last().css("color", "blue");
+	//  ul태그의 자식 객체 다 가져오기
+    console.log($lists);
+
+    // jQuery객체를 []로 접근하면 JS객체로 변경된다.
+    // (형변환으로 생각)$로 감싸주면 jquery로 사용 가능
+    $lists[0].style.color = "blue";
+    $($lists[0]).css("color", "blue");
+    // 인덱스를 전달할때는 eq를 써서 jquery로 가져와줌
+    $lists.eq(0).css("color", "blue");
+</script>
+</html>

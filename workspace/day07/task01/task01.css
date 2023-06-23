@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+/* body 글씨체 조정 */
+body {
+    font-family: 'NanumGomSinCe';
+    font-weight: bold;
+}
+
+/* input 글씨체 조정 */
+input {
+    font-family: 'NanumGomSinCe';
+    font-weight: bold;
+}
+
+table {
+    width: 20%; /*테이블 화면 대비 너비*/
+    margin: 0 auto; /*위 , 좌우 여백 설정*/  
+    text-align: center; /*table내에 글자 정렬*/
+}
+
+thead {
+    background-color: #fff9c4; /*thead*/
+}
+
+fieldset {
+    text-align: center; /*fieldset 내부 input button 태그 가운데 정렬*/
+    margin: 0 auto; /*태그 여백*/ 
+    width: 20%; /*태그 화면 비율*/
+}

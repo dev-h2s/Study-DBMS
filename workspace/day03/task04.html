@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>종합 실습4</title>
+  </head>
+  <body></body>
+  <script>
+    let s = prompt('문자열을 입력하세요');
+    let number = prompt('숫자를 입력하세요');
+    let vie;
+    with (document) {
+      vie = `<h3>pr(<q>${s}</q>, ${number})</h3>`;
+      write(vie);
+      write(`<button onclick = "pr('${s}',${number},print)">결과 확인</button>`);
+    }
+
+    function pr(s, number, callback) {
+      let result = '';
+      for (let i = 0; i < number; i++) {
+        result += s;
+      }
+      if (callback) {
+        callback(result);
+        return;
+      }
+      return result;
+    }
+
+    // 클릭했을때 나오는 문자열
+    function print(result) {
+      with (document) {
+        write(vie);
+        write(`<h4>결과 : ${result}<h4>`);
+      }
+    }
+  </script>
+</html>

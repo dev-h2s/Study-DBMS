@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클릭 이벤트 - 실습</title>
+    <style>
+        #square-container {
+            margin: 0 auto;
+            width: 500px;
+            display: flex;
+            justify-content: space-between;
+        }
+        div.square {
+            width: 150px;
+            height: 150px;
+            border: 0.5px solid #e0e0e0;
+        }
+    </style>
+</head>
+<body> 
+    <div>
+        <input type="text" name="name" placeholder="이름">
+        <input type="button" value="등록" name = "but">
+    </div>
+    <div id="square-container">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+    </div>
+</body>
+<script>
+    // 이름을 입력하고 등록버튼을 클릭한다.
+    // 각 사각형을 클릭하면 순서대로 성, 이름이 나오게된다.
+    // 입력 예) 송태섭
+    // 출력 예) 송    태    섭
+
+    // 이름이 두 글자라면, 마지막 사각형에는 ♥를 출력한다.
+    // 입력 예) 한나
+    // 출력 예) 한    나    ♥   
+
+    HTMLCollection.prototype.forEach = Array.prototype.forEach
+
+    let names = document.querySelector('input[name="name"]');   // input name이 "name"인 태그에서 받은 값을 단수로 names에 담아준다
+    let squares = document.getElementsByClassName("square");    // square(리스트) 를 squares에 담아준다
+    let button = document.querySelector('input[name ="but"]');  // button 에 name이 'but'인 것을 담는다
+    button.addEventListener("click",function(){ // 버튼이벤트 클릭이 발생할시 해당 함수 실행
+        squares.forEach(i => i.innerHTML = "");     //등록을 눌렀을때 square를 초기화 하는 코드 
+
+        // for (let i = 0; i < squares.length; i++) {
+        //              squares[i].innerHTML = "";}
+
+        const namesarr= names.value.split("");     // namesarr에 names에서 받은 값을 split을 이용하여 하나씩 분리
+        let nameval= names.value;   // nameval에 입력 받은값을 저장해둔다.
+        for (let i = 0; i < squares.length; i++) { // squares의 숫자만큼 for
+            squares[i].addEventListener("click",function(){ //  squares의 i방부터 클릭시 이벤트 발생
+                    this.innerHTML = namesarr[i] ? namesarr[i] : '♥';    // squales[]의 값은 nemesarr의 i번째방 i번째 방에 값이 없으면 ♥로 대체 
+                });     
+            }
+});
+
+</script>
+</html>
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클릭 이벤트 - 실습</title>
+    <style>
+        #square-container {
+            margin: 0 auto;
+            width: 500px;
+            display: flex;
+            justify-content: space-between;
+        }
+        div.square {
+            width: 150px;
+            height: 150px;
+            border: 0.5px solid #e0e0e0;
+            line-height: 150px;
+            text-align: center;
+            font-size: 5rem;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" name="name" placeholder="이름">
+        <input type="button" id="register" value="등록">
+    </div>
+    <div id="square-container">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+    </div>
+</body>
+<script src="event02.js"></script>
+<script>
+    // 이름을 입력하고 등록버튼을 클릭한다.
+    // 각 사각형을 클릭하면 순서대로 성, 이름이 나오게된다.
+    // 입력 예) 한동석
+    // 출력 예) 한    동    석
+
+    // 이름이 두 글자라면, 마지막 사각형에는 ♥를 출력한다.
+    // 입력 예) 이찬
+    // 출력 예) 이    찬    ♥
+    button.addEventListener("click", function(){register(showCharacter)});
+</script>
+</html> -->
